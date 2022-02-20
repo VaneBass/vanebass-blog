@@ -1,0 +1,11 @@
+.posts {
+  width: 100%;
+  height: fit-content;
+  flex: 9;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+
+  grid-row: 2 / -1;
+  grid-column: 1 / 14;
+}
