@@ -17,6 +17,15 @@ async function main() {
     .then(console.log("Connected to MongoDB"));
 }
 
+app.all("*", (request, response, next) => {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Content-Type");
+  response.header("Access-Control-Allow-Methods", "*");
+  response.header("Content-Type", "application/json;charset=utf-8");
+  // 回调
+  next();
+});
+
 // 解析json
 app.use(express.json());
 
