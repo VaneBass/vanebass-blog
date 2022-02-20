@@ -20,6 +20,12 @@ async function main() {
 // 解析json
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 // 挂载子路由
 routes(app);
 

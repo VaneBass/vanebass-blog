@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import me from "../../assets/images/jarritos-mexican-soda-YndbQ-ixU_o-unsplash.jpg";
+// import me from "../../assets/images/jarritos-mexican-soda-YndbQ-ixU_o-unsplash.jpg";
 import {
   faAddressBook,
   faAngleUp,
