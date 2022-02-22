@@ -1,7 +1,9 @@
 import React from "react";
 import StyledPagination, { Page, PageLink, PageList } from "./style";
 
-function Pagination({ totalPage, currentPage, requestPostsByPage }) {
+function Pagination({ theme, totalPage, currentPage, requestPostsByPage }) {
+  let fontColor = theme === "light" ? "#333" : "white";
+
   // 存放页码的数组
   let pageNumberArr = [];
   // 底部导航数组
@@ -42,7 +44,9 @@ function Pagination({ totalPage, currentPage, requestPostsByPage }) {
       <PageList>
         {pageNumberArr.map((v, index) => (
           <Page key={`${index}-${v}`} onClick={() => requestPostsByPage(v)}>
-            <PageLink isCurrentPage={currentPage === v}>{v}</PageLink>
+            <PageLink fontColor={fontColor} isCurrentPage={currentPage === v}>
+              {v}
+            </PageLink>
           </Page>
         ))}
       </PageList>

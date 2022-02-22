@@ -32,8 +32,8 @@ const Page = styled.li`
 `;
 
 const PageLink = styled.a`
-  color: ${({ isCurrentPage }) =>
-    isCurrentPage ? "green" : "white"} !important;
+  color: ${({ isCurrentPage, fontColor }) =>
+    isCurrentPage ? "green" : fontColor} !important;
   font-size: 18px;
 `;
 

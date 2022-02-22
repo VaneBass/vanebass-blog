@@ -4,6 +4,7 @@ import PostList from "../PostList";
 import StyledPost, { PostContainer } from "./style";
 
 export default function Posts({
+  theme,
   posts,
   totalPage,
   currentPage,
@@ -16,6 +17,7 @@ export default function Posts({
         <PostList posts={posts} setCurrentCat={setCurrentCat} />
       </PostContainer>
       <Pagination
+        theme={theme}
         totalPage={totalPage}
         currentPage={currentPage}
         requestPostsByPage={requestPostsByPage}

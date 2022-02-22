@@ -5,6 +5,7 @@ const StyledCurCat = styled.h1`
   grid-column: 1 / -1;
   margin: auto 15vw;
   text-align: center;
+  font-size: 24px;
 `;
 
 export default StyledCurCat;

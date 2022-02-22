@@ -7,7 +7,7 @@ function FileUploader() {
 
   async function savePost(title, content, category) {
     await axios
-      .post("/posts", {
+      .post("https://api-xi-gold.vercel.app/api/posts", {
         title,
         content,
         category,

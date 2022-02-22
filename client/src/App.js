@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import Footer from "./components/Footer";
 import { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
+import { baseUrl } from "./data/data";
 
 function App() {
   const [theme, toggleTheme] = useDarkMode();
@@ -27,7 +28,7 @@ function App() {
   const [searchWord, setSearchWord] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
-  const smallScreen = window.screen.width <= 480 ? true : false;
+  const smallScreen = window.innerWidth <= 480 ? true : false;
 
   // 防抖函数
   function useDebounce(fn, delay) {
@@ -56,7 +57,7 @@ function App() {
   async function fetchSearchRes() {
     if (searchWord) {
       try {
-        const res = await axios.get("/posts/search", {
+        const res = await axios.get(`${baseUrl}/posts/search`, {
           params: {
             searchWord,
           },
@@ -72,9 +73,9 @@ function App() {
   let getSearchRes = useDebounce(fetchSearchRes, 500);
 
   useEffect(() => {
-    console.log(window.screen.width);
+    console.log(window.innerWidth);
     const fetchPosts = async () => {
-      const res = await axios.get("/posts", {
+      const res = await axios.get(`${baseUrl}/posts`, {
         params: {
           category: currentCat,
           currentPage,
@@ -86,7 +87,7 @@ function App() {
     };
 
     const fetchCategories = async () => {
-      const res = await axios.get("/category");
+      const res = await axios.get(`${baseUrl}/category`);
       setCategories(res.data);
     };
 
@@ -97,9 +98,7 @@ function App() {
       getSearchRes();
     }
 
-    if (smallScreen) {
-      setPerPageNumber(4);
-    }
+    smallScreen ? setPerPageNumber(4) : setPerPageNumber(6);
   }, [
     currentPage,
     perPageNumber,

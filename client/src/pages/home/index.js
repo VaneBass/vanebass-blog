@@ -23,6 +23,7 @@ export default function Home({
       <StyledContainer id="posts">
         <CurrentCat currentCat={currentCat} />
         <Posts
+          theme={theme}
           posts={posts}
           totalPage={totalPage}
           currentPage={currentPage}
