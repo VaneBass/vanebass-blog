@@ -15,7 +15,7 @@ export default function Home({
   currentCat,
   setCurrentCat,
 }) {
-  document.title = "VaneBass的博客";
+  document.title = "丢人侠的博客";
 
   return (
     <>
