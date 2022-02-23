@@ -129,11 +129,12 @@ export default function TopBar({
           ref={targetEl}
           onChange={(e) => inputWord(e.target.value)}
         />
-        <ResultList isSearching={word ? true : false}>
+        <ResultList theme={theme} isSearching={word ? true : false}>
           {searchResult &&
             searchResult.length > 0 &&
             searchResult.map((elem, index) => (
               <ResultItem
+                theme={theme}
                 className="search-result-item"
                 key={`${index}-${elem}`}
               >

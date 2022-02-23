@@ -49,7 +49,7 @@ const TopMenu = styled.ul`
     top: 50px;
     right: 0;
     bottom: 0;
-    width: 50vw;
+    width: 100vw;
     height: calc(100vh - 80px);
     padding-top: 60px;
 
@@ -96,9 +96,9 @@ const SearchContainer = styled.div`
   @media screen and (max-width: 1100px) {
     position: absolute;
     top: 55px;
-    right: 10vw;
+    left: 10vw;
     z-index: 999;
-    width: 30vw;
+    width: 70vw;
 
     justify-content: space-between;
 
@@ -116,7 +116,7 @@ const SearchInput = styled.input`
   color: ${({ theme }) => theme.text};
 
   @media screen and (max-width: 1100px) {
-    width: 25vw;
+    width: 65vw;
   }
 `;
 
@@ -131,11 +131,11 @@ const ResultList = styled.ul`
   position: absolute;
   top: 45px;
 
-  background-color: white;
+  background-color: ${({ theme }) => (theme === "light" ? "white" : "#333")};
   display: ${({ isSearching }) => (isSearching ? "block" : "none")};
 
   @media screen and (max-width: 1100px) {
-    width: 30vw;
+    width: 70vw;
     font-size: 14px;
     transform: translateX(-6px);
 
@@ -147,7 +147,7 @@ const ResultList = styled.ul`
 
 const ResultItem = styled.li`
   list-style: none;
-  background-color: white;
+  background-color: ${({ theme }) => (theme === "light" ? "white" : "#666")};
   color: #333;
   border-radius: 5px;
   height: 35px;
